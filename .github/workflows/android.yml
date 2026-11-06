@@ -31,7 +31,7 @@ jobs:
 
       - name: Construir aplicativo
         run: |
-          sed -i 's/VERSION_1_8/VERSION_17/g; s/jvmTarget = "1.8"/jvmTarget = "17"/g' app/build.gradle.kts
+          sed -i 's/VERSION_1_8/VERSION_17/g; s/"1.8"/"17"/g' app/build.gradle.kts
           gradle assembleDebug
 
       - name: Disponibilizar APK

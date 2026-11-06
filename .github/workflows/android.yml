@@ -28,9 +28,10 @@ jobs:
         run: |
           unzip -q ShopeeDivulgaAI-GitHub-pronto.zip -d projeto
           cp -R projeto/. .
-
-      - name: Construir aplicativo
-        run: gradle assembleDebug
+- name: Construir aplicativo
+  run: |
+    sed -i 's/JavaVersion.VERSION_1_8/JavaVersion.VERSION_17/g' app/build.gradle.kts
+    gradle assembleDebug
 
       - name: Disponibilizar APK
         uses: actions/upload-artifact@v4
